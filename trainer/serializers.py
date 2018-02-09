@@ -1,4 +1,4 @@
-from django.contrib.auth.models import Post
+from trainer.models import Post
 from rest_framework import serializers
 
 
