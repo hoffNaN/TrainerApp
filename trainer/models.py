@@ -32,19 +32,18 @@ class BasicUser(models.Model):
 
 class Trainer(models.Model):
     qualify = models.TextField(max_length=60)
-    gym = models.CharField(max_length=10)
+    gym = models.ManyToManyField('Gym', blank=True)
     experience = models.TextField(max_length=60)
-    spec = models.CharField(max_length=200)
-    opinion = models.Charfield(max_length=1)
+    specialization = models.CharField(max_length=200)
+    opinion = models.ManyToManyField()
 
 class GymOwner(models.Model):
-    gym = models.CharField(max_length=10)
-    sex = models.CharField(max_length=1)
+    gym = models.ManyToManyField('Gym', blank=True)
 
 class Address(models.Model):
     country_code = models.CharField(max_length=3)
-    province = model.CharField(max_length=20)
-    city = model.CharField(max_length=30)
+    province = models.CharField(max_length=20)
+    city = models.CharField(max_length=30)
 
 class Contact(models.Model):
     phone = models.CharField(max_length=9)
@@ -52,4 +51,13 @@ class Contact(models.Model):
     fb = models.CharField(max_length=30)
 
 class Gym(models.Model):
-    
+    name_gym = models.CharField(max_length=20)
+    train_type = models.ForeignKey('TrainType', on_delete=models.CASCADE)
+    discription = models.TextField(max_length=400)
+    contact = models.ForeignKey('Contact', on_delete=models.CASCADE)
+    price = models.
+    trainer = models.ForeignKey('Trainer', on_delete=models.CASCADE, null=True)
+
+class TrainType(models.model):
+
+class Opinion(models.model):
