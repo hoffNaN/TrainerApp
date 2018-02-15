@@ -1,6 +1,7 @@
 *.pyc
 __pycache__
 trainervendb.sqlite3
+db.sqlite3
 .DS_Store
 train
 trainervenv

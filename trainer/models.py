@@ -57,7 +57,7 @@ class Gym(models.Model):
     name_gym = models.CharField(max_length=20)
     discription = models.TextField(max_length=400)
     contact = models.ForeignKey('Contact', on_delete=models.CASCADE)
-    trainer = models.ForeignKey('Trainer', on_delete=models.CASCADE, null=True)
+    #trainer = models.ForeignKey('Trainer', on_delete=models.CASCADE, null=True)
     offert = models.ForeignKey('TrainType', on_delete=models.CASCADE)
 
 class TrainType(models.Model):
