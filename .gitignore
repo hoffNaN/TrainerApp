@@ -3,5 +3,6 @@ __pycache__
 trainervendb.sqlite3
 .DS_Store
 train
+trainervenv
 er/migrations
 .idea
