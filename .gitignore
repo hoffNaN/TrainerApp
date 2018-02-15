@@ -1,6 +1,7 @@
 *.pyc
 __pycache__
-trainervenv
-db.sqlite3
+trainervendb.sqlite3
 .DS_Store
-trainer/migrations
+train
+er/migrations
+.idea
