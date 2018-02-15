@@ -35,7 +35,7 @@ class Trainer(models.Model):
     gym = models.ManyToManyField('Gym', blank=True)
     experience = models.TextField(max_length=60)
     specialization = models.ForeignKey('TrainType', on_delete=models.CASCADE)
-    rating = models.ManyToManyField()
+    rating = models.ForeignKey('Opinion', on_delete=models.CASCADE, null=True)
     offert = models.ForeignKey('Offer', on_delete=models.CASCADE, null=True)
 
 class GymOwner(models.Model):
@@ -60,7 +60,7 @@ class Gym(models.Model):
     trainer = models.ForeignKey('Trainer', on_delete=models.CASCADE, null=True)
     offert = models.ForeignKey('TrainType', on_delete=models.CASCADE)
 
-class TrainType(models.model):
+class TrainType(models.Model):
     JOGA = 'joga'
     TBC = 'tbc'
     FITNESS = 'fitness'
@@ -74,13 +74,13 @@ class TrainType(models.model):
 
     train_type = models.CharField(max_length=5, choices=train_choice, default=JOGA)
 
-class Offer(models.model):
+class Offer(models.Model):
     discription = models.TextField(max_length=200)
     price = models.DecimalField(max_digits=8, decimal_places=2)
     train_type = models.ForeignKey('TrainType', on_delete=models.CASCADE)
     localization = models.ForeignKey('Address', on_delete=models.CASCADE)
 
-class Opinion(models.model):
+class Opinion(models.Model):
     WORSE = 'worse'
     BAD = 'bad'
     NEUTRAL = 'neutral'
