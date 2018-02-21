@@ -1,4 +1,5 @@
 from trainer.models import Post, BasicUser, Trainer, GymOwner
+from trainer.models import  Address, Contact, Gym, Offer, TrainType, Opinion
 from rest_framework import serializers
 
 
@@ -29,3 +30,45 @@ class GymOwnerSerializer(serializers.ModelSerializer):
     class Meta:
         model = GymOwner
         fields = ('gym','offert')
+
+class AddressSerializer(serializers.ModelSerializer):
+    country_code = serializers.StringRelatedField(many=False)
+
+    class Meta:
+        model = Address
+        fields = ('country','province','city')
+
+class ContactSerializer(serializers.ModelSerializer):
+    country_code = serializers.StringRelatedField(many=False)
+
+    class Meta:
+        model = Contact
+        fields = ('phone','email','fb')
+
+class GymSerializer(serializers.ModelSerializer):
+    name_gym = serializers.StringRelatedField(many=False)
+
+    class Meta:
+        model = Gym
+        fields = ('name_gym','discription','contact','offert')
+
+class OfferSerializer(serializers.ModelSerializer):
+    discription = serializers.StringRelatedField(many=False)
+
+    class Meta:
+        model = Offer
+        fields = ('discription','price','train_type','localization')
+
+class TrainTypeSerializer(serializers.ModelSerializer):
+    discription = serializers.StringRelatedField(many=False)
+
+    class Meta:
+        model = TrainType
+        fields = ('train_type')
+
+class OpinionSerializer(serializers.ModelSerializer):
+    discription = serializers.StringRelatedField(many=False)
+
+    class Meta:
+        model = Opinion
+        fields = ('opinion_type')
