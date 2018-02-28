@@ -23,7 +23,7 @@ class BasicUser(models.Model):
     verbose_name='Nazwa użytkownika')
     name = models.CharField(max_length=20,
     verbose_name='Imię i Nazwisko')
-    dayofbirth = models.DateTimeField(verbose_name='Wiek')
+    #dayofbirth = models.DateTimeField(verbose_name='Wiek')
     interests = models.TextField(max_length=200,
     verbose_name='Zainteresowania')
     contact = models.ForeignKey('Contact', on_delete=models.CASCADE,
@@ -34,16 +34,18 @@ class BasicUser(models.Model):
     ('KOBIETA', 'K'),
     ('MĘŻCZYZNA', 'M'),
     )
-    sex = models.CharField(max_length=1,
+    sex = models.CharField(max_length=9,
     choices=sex_choices,
     verbose_name='Płeć')
     address =  models.ForeignKey('Address', on_delete=models.CASCADE,
     verbose_name='Skąd')
     trainer = models.ForeignKey('Trainer', on_delete=models.CASCADE,
     null=True,
+    blank=True,
     verbose_name='Jestem trenerem')
     gymowner = models.ForeignKey('GymOwner', on_delete=models.CASCADE,
     null=True,
+    blank=True,
     verbose_name='Jestem właścicielem obiektu')
 
 class Trainer(models.Model):
