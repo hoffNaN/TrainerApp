@@ -30,7 +30,12 @@ class BasicUser(models.Model):
     verbose_name='Kontakt')
     discription = models.TextField(max_length=400,
     verbose_name='O Sobie')
+    sex_choices = (
+    ('KOBIETA', 'K'),
+    ('MĘŻCZYZNA', 'M'),
+    )
     sex = models.CharField(max_length=1,
+    choices=sex_choices,
     verbose_name='Płeć')
     address =  models.ForeignKey('Address', on_delete=models.CASCADE,
     verbose_name='Skąd')
